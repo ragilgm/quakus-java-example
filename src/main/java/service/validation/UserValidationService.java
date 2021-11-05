@@ -14,14 +14,13 @@ import javax.ws.rs.NotFoundException;
 public class UserValidationService {
 
     @Inject
-    private UserRepository userRepository;
+    UserRepository userRepository;
 
     private User user;
 
     public User findByName(String name){
         if(user==null){
             user = userRepository.findByName(name)
-                    .map(data->data)
                     .orElseThrow(()-> new NotFoundException("user not found"));
         }
         return user;
