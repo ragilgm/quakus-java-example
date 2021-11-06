@@ -22,7 +22,7 @@ public class UserService {
     private UserRepository userRepository;
 
     @Inject
-    private UserMapper userMapper;
+    UserMapper userMapper;
 
     private static final String ERROR_USER_NOT_FOUND= "user id not found";
 
@@ -45,7 +45,6 @@ public class UserService {
 
     }
 
-    @Transactional
     public UserDto deleteUser(Long id) {
         return userRepository.findById(id).map(data-> {
             userRepository.delete(data);
