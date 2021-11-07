@@ -5,7 +5,7 @@ networks:
     driver: bridge
 
 volumes:
-  sample_volumes:
+  postgres_data:
     external: true
 
 services:
@@ -25,6 +25,8 @@ services:
         condition: service_healthy
     networks:
       - quarkus
+    volumes:
+      - .:/usr/src/app
 
   quarkus-db:
     image: "postgres:10.5"
@@ -43,5 +45,5 @@ services:
     networks:
       - quarkus
     volumes:
-      - sample_volumes:/usr/src/app
+      - postgres_data:/var/lib/postgresql/data
 
