@@ -31,7 +31,7 @@ services:
   quarkus-db:
     image: "postgres:10.5"
     mem_limit: 128m
-    container_name: postgres-database-test
+    container_name: postgres
     environment:
       - POSTGRES_USER=quarkus
       - POSTGRES_PASSWORD=quarkus
